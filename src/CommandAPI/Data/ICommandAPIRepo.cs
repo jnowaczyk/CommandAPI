@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using CommandAPI.Models;
 
-namespace CommandApi.Data
+namespace CommandAPI.Data
 {
     interface ICommandAPIRepo 
     {
