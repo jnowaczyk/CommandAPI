@@ -3,7 +3,7 @@ using CommandAPI.Models;
 
 namespace CommandAPI.Data
 {
-    interface ICommandAPIRepo 
+    public interface ICommandAPIRepo 
     {
         IEnumerable<Command> GetAllCommands();
         Command GetCommandById(int id);
