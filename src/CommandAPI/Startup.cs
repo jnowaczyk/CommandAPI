@@ -29,7 +29,7 @@ namespace CommandAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddScoped<ICommandAPIRepo,MockCommandAPIRepo>();
+            services.AddScoped<ICommandAPIRepo,SqlCommandApiRepo>();
             services.AddDbContext<CommandContext>( options => options.UseNpgsql(Configuration.GetConnectionString("PostgreSqlConnection")));
         }
 
