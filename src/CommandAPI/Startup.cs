@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Npgsql;
 using AutoMapper;
 using System;
+using Newtonsoft.Json.Serialization;
 
 namespace CommandAPI
 {
@@ -42,6 +43,11 @@ namespace CommandAPI
             services.AddDbContext<CommandContext>( options => options.UseNpgsql(connBuilder.ConnectionString));
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            services.AddControllers().AddNewtonsoftJson( setup => 
+            {
+                setup.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
