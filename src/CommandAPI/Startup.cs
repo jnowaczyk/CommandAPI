@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Npgsql;
+using AutoMapper;
+using System;
 
 namespace CommandAPI
 {
@@ -38,6 +40,8 @@ namespace CommandAPI
             connBuilder.Password = Configuration["Password"];
             
             services.AddDbContext<CommandContext>( options => options.UseNpgsql(connBuilder.ConnectionString));
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
