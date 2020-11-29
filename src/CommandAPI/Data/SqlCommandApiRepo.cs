@@ -48,7 +48,7 @@ namespace CommandAPI.Data
 
         public void UpdateCommand(Command cmd)
         {
-            throw new System.NotImplementedException();
+            // to dont need to do anything here
         }
     }
 }
