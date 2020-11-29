@@ -43,7 +43,7 @@ namespace CommandAPI.Data
 
         public bool SaveChanges()
         {
-            throw new System.NotImplementedException();
+            return Context.SaveChanges() > 0 ? true : false;
         }
 
         public void UpdateCommand(Command cmd)
