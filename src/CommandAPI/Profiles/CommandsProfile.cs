@@ -3,7 +3,7 @@ using CommandAPI.Models;
 using CommandAPI.Dtos;
 namespace CommandAPI.Profiles
 {
-    class CommandsProfile: Profile
+    public class CommandsProfile: Profile
     {
         public CommandsProfile()
         {
