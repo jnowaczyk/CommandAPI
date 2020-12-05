@@ -1,19 +1,27 @@
+using System;
 using CommandAPI.Models;
 using Xunit;
 
 namespace CommandAPI.Tests
 {
-    public class CommandTests 
+    public class CommandTests : IDisposable
     {
-        [Fact]
-        public void CanChangeHowTo() 
+        Command testCommand;
+        
+        public CommandTests()
         {
-            var testCommand = new Command
+            testCommand = new Command
             {
                 HowTo = "Do something awesome",
                 Platform = "xUnit",
                 CommandLine = "dotnet test"
             };
+        }
+
+
+        [Fact]
+        public void CanChangeHowTo() 
+        {
             //Act
             testCommand.HowTo = "Execute Unit Tests";
             //Assert
@@ -23,12 +31,6 @@ namespace CommandAPI.Tests
          [Fact]
         public void CanChangePlatform() 
         {
-            var testCommand = new Command
-            {
-                HowTo = "Do something awesome",
-                Platform = "xUnit",
-                CommandLine = "dotnet test"
-            };
             //Act
             testCommand.Platform = "nUnit";
             //Assert
@@ -38,16 +40,12 @@ namespace CommandAPI.Tests
          [Fact]
         public void CanChangeCommandLine() 
         {
-            var testCommand = new Command
-            {
-                HowTo = "Do something awesome",
-                Platform = "xUnit",
-                CommandLine = "dotnet test"
-            };
             //Act
             testCommand.CommandLine = "Use runner instead";
             //Assert
             Assert.Equal("Use runner instead", testCommand.CommandLine);
         }
+
+        public void Dispose() => testCommand = null;
     }
 }
