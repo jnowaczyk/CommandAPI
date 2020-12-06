@@ -25,7 +25,7 @@ namespace CommandAPI.Tests
             //Act
             testCommand.HowTo = "Execute Unit Tests";
             //Assert
-            Assert.Equal("Execute Unit Tests", testCommand.HowTo);
+            Assert.Equal("Execute Unit Tests - failed", testCommand.HowTo);
         }
 
          [Fact]
